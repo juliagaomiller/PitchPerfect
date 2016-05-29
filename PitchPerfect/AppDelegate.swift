@@ -1,10 +1,7 @@
-//
 //  AppDelegate.swift
 //  PitchPerfect
-//
 //  Created by Julia Miller on 9/25/15.
 //  Copyright (c) 2015 Julia Miller. All rights reserved.
-//
 
 import UIKit
 
@@ -12,7 +9,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
