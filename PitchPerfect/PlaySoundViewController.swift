@@ -20,15 +20,11 @@ class PlaySoundViewController: UIViewController {
     audioEngine = AVAudioEngine()
     audioFile = try? AVAudioFile(forReading: receivedAudio.filePathUrl) //CONVERT NSURL TO AVAUDIOFILE FOR .SCHEDULEFILE
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()}
     
     @IBAction func playSnail(sender: UIButton) {
-        stopAudio()
         changeRate(0.5)
     }
     @IBAction func playRabbit(sender: UIButton) {
-        stopAudio()
         changeRate(2.0)
     }
     @IBAction func playChipmunk(sender: UIButton) {
@@ -59,6 +55,7 @@ class PlaySoundViewController: UIViewController {
     
     }
     func changeRate(rate:Float){
+        stopAudio()
         audioPlayer.rate = rate
         audioPlayer.currentTime = 0.0
         audioPlayer.play()

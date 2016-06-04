@@ -10,7 +10,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate { //
 
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var recordingInProgress: UILabel!
+    @IBOutlet weak var recordingLabel: UILabel!
+    
     
     var audioRecorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
@@ -18,11 +19,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate { //
     override func viewWillAppear(animated: Bool) {
         stopButton.hidden = true;
         recordButton.enabled = true;
+        recordingLabel.text = "Tap to record."
+        
     }
     @IBAction func recordAudio(sender: UIButton) {
         stopButton.hidden = false;
-        recordingInProgress.hidden = false;
         recordButton.enabled = false;
+        recordingLabel.text = "Recording in progress..."
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         let recordingName = "my_audio.wav"
@@ -57,7 +60,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate { //
         }
     }
     @IBAction func StopBtn(sender: UIButton) {
-        recordingInProgress.hidden = true;
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance();
         do {
